@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   
   # get "up" => "rails/health#show", as: :rails_health_check
-  get "/users", to: "users#index"
-  root "users#index"
-  post "/users", to: "users#create"
-  
+  root "/"
   resources :users
   #   resources :usersを使うことで以下のルーティングを1行で行える
   # get "/users", to: "users#index"
