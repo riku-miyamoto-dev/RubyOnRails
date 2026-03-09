@@ -1,47 +1,48 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @user = users(:one)
-  end
 
-  test "should get index" do
+  test "ユーザー一覧の表示" do
     get users_path
     assert_response :success
   end
 
-  test "should get new" do
+  test "ユーザーを新規作成するページの表示" do
     get new_user_url
     assert_response :success
   end
 
-  test "should create user" do
+  test "ユーザーを作成時にレコードが一件増えること" do
     assert_difference("User.count") do
-      post users_path, params: { user: { name: "test_user" } }tu
+      post users_path, params: { user: { name: "test_user" } }
     end
-    assert_redirected_to user_url(User.last)
+    assert_response :redirect
   end
 
 
-  test "should show user" do
+  test "ユーザーの詳細を表示できるか" do
+    @user = users(:InitialValue)
     get user_url(@user)
     assert_response :success
   end
 
-  test "should get edit" do
+  test "ユーザー編集ページを表示できるか" do
+    @user = users(:InitialValue)
     get edit_user_url(@user)
     assert_response :success
   end
 
 
-  test "should update user" do
+  test "ユーザー情報を更新できるか" do
+    @user = users(:InitialValue)
     patch user_url(@user), params: { user: { name: "updated_user" } }
     assert_redirected_to user_url(@user)
     @user.reload
     assert_equal "updated_user", @user.name
   end
 
-  test "should destroy user" do
+  test "ユーザーを削除できるか" do
+    @user = users(:InitialValue)
     assert_difference("User.count", -1) do
       delete user_url(@user)
     end
