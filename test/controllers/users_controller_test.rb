@@ -49,4 +49,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to users_path
   end
+
+  test "フィクスチャの利用"do
+    @FirstValue = users(:InitialValue)
+    @SecondValue = users(:SecondValue)
+    assert_not_equal @FirstValue.name, @SecondValue.name
+  end
 end
