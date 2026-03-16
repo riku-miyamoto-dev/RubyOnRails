@@ -53,6 +53,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "フィクスチャの利用"do
     @FirstValue = users(:InitialValue)
     @SecondValue = users(:SecondValue)
+    #Trueを確認するテストの際に使用
     assert_not_equal @FirstValue.name, @SecondValue.name
+    #Falseを確認するためのテストの際に使用
+    # assert_equal @FirstValue.name, @SecondValue.name
   end
 end

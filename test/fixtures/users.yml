@@ -2,7 +2,6 @@
 
 InitialValue:
   name: MyString
-  # name: YourString
   
 SecondValue:
   name: YourString
