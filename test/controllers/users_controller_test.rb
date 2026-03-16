@@ -21,20 +21,20 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
 
   test "ユーザーの詳細を表示できるか" do
-    @user = users(:InitialValue)
+    @user = users(:test_user)
     get user_url(@user)
     assert_response :success
   end
 
   test "ユーザー編集ページを表示できるか" do
-    @user = users(:InitialValue)
+    @user = users(:test_user)
     get edit_user_url(@user)
     assert_response :success
   end
 
 
   test "ユーザー情報を更新できるか" do
-    @user = users(:InitialValue)
+    @user = users(:test_user)
     patch user_url(@user), params: { user: { name: "updated_user" } }
     assert_redirected_to user_url(@user)
     @user.reload
@@ -42,7 +42,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "ユーザーを削除できるか" do
-    @user = users(:InitialValue)
+    @user = users(:test_user)
     assert_difference("User.count", -1) do
       delete user_url(@user)
     end
@@ -50,12 +50,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_path
   end
 
-  test "フィクスチャの利用"do
-    @FirstValue = users(:InitialValue)
-    @SecondValue = users(:SecondValue)
-    #Trueを確認するテストの際に使用
-    assert_not_equal @FirstValue.name, @SecondValue.name
-    #Falseを確認するためのテストの際に使用
-    # assert_equal @FirstValue.name, @SecondValue.name
-  end
 end
