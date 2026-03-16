@@ -3,7 +3,7 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.1"
 
-# バージョンの競合のため追加
+# Minitest6で古いRubyのサポート削除や内部APIの整理、非推奨機能の削除などの変更が行われた。これにより保守性は向上したが既存ライブラリ、今回はRailsとの互換性に影響が出る。そのためRails環境で安定動作させるためにMinitest5系を指定する。
 gem "minitest", "~> 5.20"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
