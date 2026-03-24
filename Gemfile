@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 
-# minitest 6系の動作のため8.1.1=>8.1.2に変更
 gem "rails", "~> 8.1.2"
 
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
