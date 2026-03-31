@@ -19,13 +19,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_25_030511) do
     t.date "birthday"
     t.datetime "created_at", null: false
     t.string "email"
+    t.string "furigana"
     t.string "gender"
     t.string "mobile"
     t.string "name"
-    t.integer "no"
     t.string "phone"
     t.string "post_code"
-    t.string "rubi"
     t.datetime "updated_at", null: false
   end
 end

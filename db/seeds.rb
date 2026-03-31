@@ -1,24 +1,9 @@
-require 'csv'
-
-CSV.foreach('db/personal_infomation.csv', headers: true) do |row|
-  address = [
-    row['jusho1'],
-    row['jusho2'],
-    row['jusho3'],
-    row['jusho4'],
-    row['jusho5']
-  ].compact.join
-
-  User.create(
-    no: row['no'],
-    name: row['namae'],
-    rubi: row['rubi'],
-    gender: row['seibetu'],
-    phone: row['denwa'],
-    mobile: row['keitai'],
-    email: row['mairu'],
-    post_code: row['yuubinbango'],
-    address: address,
-    birthday: row['tanjobi']
-  )
-end
+# This file should ensure the existence of records required to run the application in every environment (production,
+# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Example:
+#
+#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#     MovieGenre.find_or_create_by!(name: genre_name)
+#   end
